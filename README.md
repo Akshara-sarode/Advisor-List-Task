@@ -1,5 +1,22 @@
 # Advisor List Task 
 
+Schwab Independent Advisor Directory
+
+An interactive Power BI directory for exploring Registered Investment Advisory (RIA) firms by location. Built by **Akshara Sarode** using the submitted Part 1 advisor workbook.
+
+**[Open the live Power BI report](https://app.powerbi.com/groups/c9955dea-8185-4c1e-acd7-ca412083b92d/reports/ec62f1e0-5f92-4276-ab23-c66fadfac5e3/1b44de2a555fc95ac2c3?experience=power-bi)** · [Download the PBIX](./Advisor%20List%20Task%20-%20Power%20BI%20Dashboard.pbix) · [View the PDF](./Advisor%20List%20Task%20-%20Power%20BI%20Dashboard.pdf)
+
+> The live report may require Power BI access. The PDF is a static export; use the live report or PBIX for interactive filtering.
+
+## What the dashboard includes
+
+- **Five summary metrics:** Total Advisor Firms, Filtered Advisor Count, Unique States, Unique Cities, and Unique ZIP Codes.
+- **Linked location filters:** Country, State, City, and ZIP Code dropdowns progressively narrow the advisor list.
+- **Firm selector:** The **Search Advisor / Firm** dropdown lists company names from the dataset. Selecting one filters the details and dynamic metrics.
+- **Advisor details:** A sortable table with firm name, CRD, address, city, state, ZIP, phone, email, website, and SEC profile. Right-hand columns can be reached by horizontal scrolling.
+- **Geographic analysis:** Horizontal charts for Advisor Firms by State and Top 10 Cities by Advisor Firms.
+- **Two report pages:** `Advisor Directory` and `Geographic Analysis`.
+
 ## Dashboard
 
 <img width="1920" height="1088" alt="image" src="https://github.com/user-attachments/assets/b9960a08-dfb4-40fb-bec6-b25eb67178b3" />
@@ -9,37 +26,45 @@
 
 Open the `.pbix` file in Power BI Desktop to edit the report and its imported data. The PDF is a static view of the unfiltered report.
 
-## Data source and preparation
+Data and metric definitions
 
-Source: `Submission File (Akshara).xlsx`, populated sheet `Schwab database`. The report's `Advisor Locations` table uses the full 4,397 location rows. Its query promotes the actual header row, adds `Country = United States`, and stores ZIP as five-character text so leading zeros remain visible. The imported model also retains the raw `Schwab database` query; report visuals use `Advisor Locations`.
+The source is [`Submission File (Akshara).xlsx`](./Submission%20File%20%28Akshara%29.xlsx), using its populated `Schwab database` sheet. Power BI prepares an `Advisor Locations` table with **4,397 location rows**. The report also retains the raw sheet query. `Country` is set to `United States`, and ZIP codes are stored as text to preserve leading zeros.
 
-`firmId` identifies a firm. One firm can have multiple location rows, so advisor metrics use a distinct count of `firmId`.
+At the unfiltered view, the report shows:
 
-## Dashboard structure
+| Metric | Value |
+| --- | ---: |
+| Total Advisor Firms | 2,570 |
+| Filtered Advisor Count | 2,570 |
+| Unique States, including DC | 51 |
+| Unique Cities shown in the report | 1,314 |
+| Unique ZIP Codes | 2,133 |
 
-The top row shows total advisor firms, filtered advisor count, unique states, unique city names, and unique ZIP codes. With no filters applied, these are 2,570 firms, 2,570 filtered firms, 51 states (including DC), 1,314 city names, and 2,133 ZIP codes. The total-firms figure is a fixed snapshot label for this imported dataset; update it if the source is replaced. The other four cards recalculate when filters change.
+One firm can have multiple office rows. Firm metrics use **distinct firm IDs** so offices do not inflate the advisor count. `Total Advisor Firms` is a fixed baseline label for this imported snapshot; the other four KPI cards recalculate with filters. Check the fixed label if the source data is later replaced.
 
-The report has two pages. **Advisor Directory** is the main, single-page dashboard matching the supplied layout reference. It contains the title **Schwab Independent Advisor Directory**, the subtitle **Akshara Sarode**, five KPIs across the top, four geographic dropdown filters, a firm-name search at the upper right, the advisor table on the left, and both horizontal charts on the right. The KPI cards use light orange, light blue, baby pink, and lavender backgrounds with darker values for readability.
+## How to use it
 
-**Geographic Analysis** repeats the title and subtitle above two horizontal bar charts based on distinct firm IDs: **Advisor Firms by State** in soft pink and **Top 10 Cities by Advisor Firms** in burgundy. The state chart is scrollable. The city chart has a visual-level Top 10 filter. Chart bars can be selected to cross-filter other visuals on that page. The displayed figures come from the supplied workbook and can differ from the design reference.
+1. Open the [live report](https://app.powerbi.com/groups/c9955dea-8185-4c1e-acd7-ca412083b92d/reports/ec62f1e0-5f92-4276-ab23-c66fadfac5e3/1b44de2a555fc95ac2c3?experience=power-bi) or the PBIX in Power BI Desktop.
+2. Choose a company or select Country, State, City, and ZIP values. The available results and dynamic counts update with the selection.
+3. Sort the advisor table by clicking a column heading. To export visible rows, use the table visual's **More options (...) > Export data** command, if enabled for your Power BI account.
+4. Use **Reset to default** to clear selections and return to the full directory.
 
-Country, State, City, ZIP, and company name are dropdown slicers on the same `Advisor Locations` table. Open **Search Advisor / Firm** to choose from the company names in the dataset; the dropdown lists available firm names. Selecting a firm or location narrows the advisor table, charts, and dynamic KPI cards. Select the checked firm again or use **Reset to default** to return to the full list.
+## Files in this repository
 
-The advisor table shows Firm Name, CRD, Address, City, State, ZIP Code, Phone, Email, Website, and SEC Profile. Some right-hand columns require horizontal scrolling. Click a column heading to sort. Hover over the table and use its **More options (...) > Export data** command to download the currently filtered rows, subject to the Power BI account's export settings.
+| File | Purpose |
+| --- | --- |
+| [`Advisor List Task - Power BI Dashboard.pbix`](./Advisor%20List%20Task%20-%20Power%20BI%20Dashboard.pbix) | Editable Power BI report with imported data |
+| [`Advisor List Task - Power BI Dashboard.pdf`](./Advisor%20List%20Task%20-%20Power%20BI%20Dashboard.pdf) | Static two-page report export |
+| [`Submission File (Akshara).xlsx`](./Submission%20File%20%28Akshara%29.xlsx) | Supplied Part 1 workbook |
+| [`advisor_locations.csv`](advisor_locations.csv) | Portable location-row data export |
+| [`Advisor_List_Task_Process_Documentation_Akshara.docx`](Advisor_List_Task_Process_Documentation_Akshara.docx) | Five-page process documentation |
+| `powerbi_*.png` | Dashboard and filter-interaction screenshots |
 
-## Files
+## Filter evidence
 
-- `Advisor List Task - Power BI Dashboard.pbix` - editable Power BI report with imported data.
-- `Advisor List Task - Power BI Dashboard.pdf` - static unfiltered report export.
-- `powerbi_unfiltered.png` - full list and baseline metrics.
-- `powerbi_company_dropdown.png` - updated company-name dropdown.
-- `powerbi_state_AL.png` - Alabama selection: 25 firms, 10 cities, 23 ZIP codes.
-- `powerbi_geographic_analysis.png` - separate geographic analysis page with the same two charts.
-- `Submission File (Akshara).xlsx` - supplied source workbook.
-- `advisor_locations.csv` - cleaned, export-friendly copy of the source rows.
+The screenshots demonstrate the unfiltered report, the populated [company dropdown](powerbi_company_dropdown.png), an [Alabama selection](powerbi_state_AL.png), and the [Geographic Analysis page](powerbi_geographic_analysis.png). For example, selecting Alabama showed 25 firms, 10 cities, and 23 ZIP codes; narrowing to Birmingham showed 12 firms and 8 ZIP codes.
 
-The screenshots show how live filtering affects the counts and advisor table. The PDF itself is static; use the live report or PBIX for interaction.
+## Process documentation
 
-## Updated process documentation
+The [five-page document](Advisor_List_Task_Process_Documentation_Akshara.docx) explains the source workbook, preparation steps, dashboard structure, count logic, interaction testing, export, and handoff. It distinguishes the supplied Part 1 collection process from the Power BI work completed for Part 2.
 
-[Download the five-page project documentation](Advisor_List_Task_Process_Documentation_Akshara.docx). It covers the supplied source workbook, Power BI data preparation, dashboard design, linked-filter tests, and final export steps.
