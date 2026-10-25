@@ -1,19 +1,33 @@
-# RIA Advisor Directory
+# Advisor List Task - Power BI dashboard
 
-Open `dashboard.html` in a browser. It works offline and needs no server.
+## Open the dashboard
 
-## Data source
+Live report: https://app.powerbi.com/groups/c9955dea-8185-4c1e-acd7-ca412083b92d/reports/ec62f1e0-5f92-4276-ab23-c66fadfac5e3/1b44de2a555fc95ac2c3?experience=power-bi
 
-`Submission File (Akshara).xlsx`, `Schwab database` sheet, rows 3–4399. This sheet has 4,397 advisor locations and 2,570 distinct firms by `firmId`. The other three sheets have headers but no advisor rows, so they are excluded. `advisor_locations.csv` is a normalized extract of the populated sheet.
+Open the `.pbix` file in Power BI Desktop to edit the report and its imported data. The PDF is a static view of the unfiltered report.
 
-The source has no country column. Country is derived as `United States` from its U.S. state and ZIP fields. ZIP codes are exported as five-character text to preserve leading zeros. No external geocoding or live refresh is performed.
+## Data source and preparation
 
-## Filters and metrics
+Source: `Submission File (Akshara).xlsx`, populated sheet `Schwab database`. The report's `Advisor Locations` table uses the full 4,397 location rows. Its query promotes the actual header row, adds `Country = United States`, and stores ZIP as five-character text so leading zeros remain visible. The imported model also retains the raw `Schwab database` query; report visuals use `Advisor Locations`.
 
-Country, state, city, and ZIP dropdowns show choices available under the other active filters. Firm search matches names and firm IDs. Each change updates all counts, state bars, and the advisor table. `Total advisor firms` is the unfiltered count of distinct firm IDs. `Filtered advisor firms` is the distinct firm count in the current selection. States, cities (state plus city), and ZIPs are counted in the filtered locations. Multiple locations can belong to one firm.
+`firmId` identifies a firm. One firm can have multiple location rows, so advisor metrics use a distinct count of `firmId`.
 
-Click a table header to sort. `Export filtered CSV` exports every location matching the active filters with full contact and source profile fields. `Reset filters` restores the full dataset.
+## Dashboard structure
 
-## Deliverables and limitations
+The top row shows total advisor firms, filtered advisor count, unique states, unique city names, and unique ZIP codes. With no filters applied, these are 2,570 firms, 2,570 filtered firms, 51 states (including DC), 1,314 city names, and 2,133 ZIP codes. The total-firms figure is a fixed snapshot label for this imported dataset; update it if the source is replaced. The other four cards recalculate when filters change.
 
-`dashboard.html` is the interactive dashboard. `dashboard_summary.pdf` is a static overview. `advisor_locations.csv` is the prepared source extract. This is an offline browser dashboard, not a Power BI `.pbix`; Power BI web required a work or school sign-in in this session.
+Country, State, City, and ZIP are slicers on the same `Advisor Locations` table. Select a value in one slicer to narrow the available choices and the results in the others. The company-name input slicer uses a contains search; type a term and click its apply arrow. Clear selections to return to the full list.
+
+The advisor table shows firm name, state, city, ZIP, phone, email, website, and SEC adviser profile URL. Click a column heading to sort. Hover over the table and use its **More options (...) > Export data** command to download the currently filtered rows, subject to the Power BI account's export settings.
+
+## Files
+
+- `Advisor List Task - Power BI Dashboard.pbix` - editable Power BI report with imported data.
+- `Advisor List Task - Power BI Dashboard.pdf` - static unfiltered report export.
+- `powerbi_unfiltered.png` - full list and baseline metrics.
+- `powerbi_state_AL.png` - Alabama selection: 25 firms, 10 cities, 23 ZIP codes.
+- `powerbi_AL_Birmingham.png` - Alabama and Birmingham selections: 12 firms, 8 ZIP codes.
+- `Submission File (Akshara).xlsx` - supplied source workbook.
+- `advisor_locations.csv` - cleaned, export-friendly copy of the source rows.
+
+The screenshots show how live filtering affects the counts and advisor table. The PDF itself is static; use the live report or PBIX for interaction.
