@@ -40,3 +40,7 @@ The advisor table shows Firm Name, CRD, Address, City, State, ZIP Code, Phone, E
 - `advisor_locations.csv` - cleaned, export-friendly copy of the source rows.
 
 The screenshots show how live filtering affects the counts and advisor table. The PDF itself is static; use the live report or PBIX for interaction.
+
+## Updated process documentation
+
+[Download the five-page project documentation](Advisor_List_Task_Process_Documentation_Akshara.docx). It covers the supplied source workbook, Power BI data preparation, dashboard design, linked-filter tests, and final export steps.
