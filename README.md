@@ -20,7 +20,7 @@ The report has two pages. **Advisor Directory** is the main, single-page dashboa
 
 **Geographic Analysis** repeats the title and subtitle above two horizontal bar charts based on distinct firm IDs: **Advisor Firms by State** in soft pink and **Top 10 Cities by Advisor Firms** in burgundy. The state chart is scrollable. The city chart has a visual-level Top 10 filter. Chart bars can be selected to cross-filter other visuals on that page. The displayed figures come from the supplied workbook and can differ from the design reference.
 
-Country, State, City, and ZIP are dropdown slicers on the same `Advisor Locations` table. Select a value in one slicer to narrow the available choices and the results in the others. The company-name input slicer uses a contains search; type a term and click its apply arrow. Use **Reset to default** to return to the full list.
+Country, State, City, ZIP, and company name are dropdown slicers on the same `Advisor Locations` table. Open **Search Advisor / Firm** to choose from the company names in the dataset; the dropdown includes a search box to find a name quickly. Selecting a firm or location narrows the advisor table, charts, and dynamic KPI cards. Select the checked firm again or use **Reset to default** to return to the full list.
 
 The advisor table shows Firm Name, CRD, Address, City, State, ZIP Code, Phone, Email, Website, and SEC Profile. Some right-hand columns require horizontal scrolling. Click a column heading to sort. Hover over the table and use its **More options (...) > Export data** command to download the currently filtered rows, subject to the Power BI account's export settings.
 
@@ -29,6 +29,7 @@ The advisor table shows Firm Name, CRD, Address, City, State, ZIP Code, Phone, E
 - `Advisor List Task - Power BI Dashboard.pbix` - editable Power BI report with imported data.
 - `Advisor List Task - Power BI Dashboard.pdf` - static unfiltered report export.
 - `powerbi_unfiltered.png` - full list and baseline metrics.
+- `powerbi_company_dropdown.png` - updated company-name dropdown.
 - `powerbi_state_AL.png` - Alabama selection: 25 firms, 10 cities, 23 ZIP codes.
 - `powerbi_AL_Birmingham.png` - Alabama and Birmingham selections: 12 firms, 8 ZIP codes.
 - `powerbi_geographic_analysis.png` - separate geographic analysis page with the same two charts.
