@@ -1,8 +1,11 @@
-# Advisor List Task - Power BI dashboard
+# Advisor List Task 
 
-## Open the dashboard
+## Dashboard
 
-Live report: https://app.powerbi.com/groups/c9955dea-8185-4c1e-acd7-ca412083b92d/reports/ec62f1e0-5f92-4276-ab23-c66fadfac5e3/1b44de2a555fc95ac2c3?experience=power-bi
+<img width="1920" height="1088" alt="image" src="https://github.com/user-attachments/assets/b9960a08-dfb4-40fb-bec6-b25eb67178b3" />
+
+<img width="1902" height="1056" alt="image" src="https://github.com/user-attachments/assets/3ac3a090-04cc-4cab-ab1b-2da059dd39c0" />
+
 
 Open the `.pbix` file in Power BI Desktop to edit the report and its imported data. The PDF is a static view of the unfiltered report.
 
