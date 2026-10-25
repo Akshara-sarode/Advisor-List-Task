@@ -16,7 +16,7 @@ Source: `Submission File (Akshara).xlsx`, populated sheet `Schwab database`. The
 
 The top row shows total advisor firms, filtered advisor count, unique states, unique city names, and unique ZIP codes. With no filters applied, these are 2,570 firms, 2,570 filtered firms, 51 states (including DC), 1,314 city names, and 2,133 ZIP codes. The total-firms figure is a fixed snapshot label for this imported dataset; update it if the source is replaced. The other four cards recalculate when filters change.
 
-The report title is **Schwab Independent Advisor Directory**, with **Akshara Sarode** beneath it. A purple horizontal bar chart ranks states by distinct advisor firm IDs and responds to the same filters. The title and chart use blue and purple accents.
+The report title is **Schwab Independent Advisor Directory**, with **Akshara Sarode** beneath it. A purple horizontal bar chart ranks states by distinct advisor firm IDs and responds to the same filters. The title and KPI values use blue, light orange, pink, and purple accents.
 
 Country, State, City, and ZIP are slicers on the same `Advisor Locations` table. Select a value in one slicer to narrow the available choices and the results in the others. The company-name input slicer uses a contains search; type a term and click its apply arrow. Clear selections to return to the full list.
 
